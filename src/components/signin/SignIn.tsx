@@ -64,11 +64,19 @@ export default function SignIn() {
           </div>
 
           <div className="mt-[24px]">
-            <Input className="h-[48px] md:h-[72px]" placeholder="Email" />
+            <Input
+              type="email"
+              className="h-[48px] md:h-[72px]"
+              placeholder="Email"
+            />
           </div>
 
           <div className="mt-[36px]">
-            <Input className="h-[48px] md:h-[72px]" placeholder="Password" />
+            <Input
+              type="password"
+              className="h-[48px] md:h-[72px]"
+              placeholder="Password"
+            />
           </div>
 
           <div className="mt-[36px]">
