@@ -11,7 +11,8 @@ import { Button } from "@/components/ui/button";
 
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { getUser, setRole } from "@/redux/features/userSlice";
-import { ROLES } from "@/utils/constants";
+
+import { ROLES, SITE_TITLE } from "@/utils/constants";
 
 export default function SignIn() {
   const user = useAppSelector(getUser);
@@ -29,7 +30,7 @@ export default function SignIn() {
         <div className="mt-[132px] flex flex-wrap justify-center gap-[16px]">
           <Logo />
           <h1 className="font-bc text-[30px] font-[500] text-[#FFFFFF] lg:text-[50px]">
-            Onlyfansfinder.ai
+            {SITE_TITLE}
           </h1>
         </div>
 
@@ -43,7 +44,7 @@ export default function SignIn() {
           <div className="flex justify-center gap-[16px] md:hidden">
             <Logo />
             <h1 className="font-bc text-[38px] font-[500] text-[#00AFF0]">
-              Onlyfansfinder.ai
+              {SITE_TITLE}
             </h1>
           </div>
 
