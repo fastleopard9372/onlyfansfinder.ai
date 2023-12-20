@@ -4,6 +4,7 @@
 "use client";
 
 import Link from "next/link";
+
 import Logo from "@/components/_layout/Logo";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -23,41 +24,60 @@ export default function SignIn() {
   };
 
   return (
-    <section className="flex min-h-screen w-full">
-      <div className="flex w-[45%] flex-col bg-[#00AFF0] bg-[url('/images/signin/bg.png')] bg-left-bottom bg-no-repeat">
-        <div className="mt-[132px] flex justify-center gap-[16px]">
+    <section className="flex h-screen w-full overflow-x-hidden">
+      <div className="hidden flex-1 flex-col items-center bg-[#00AFF0] bg-[url('/images/signin/bg.png')] bg-left-bottom bg-no-repeat md:flex">
+        <div className="mt-[132px] flex flex-wrap justify-center gap-[16px]">
           <Logo />
-          <h1 className="font-bc text-[50px] font-[500] text-[#FFFFFF]">
+          <h1 className="font-bc text-[30px] font-[500] text-[#FFFFFF] lg:text-[50px]">
             Onlyfansfinder.ai
           </h1>
         </div>
 
-        <div className="font-ms mt-[40px] text-center text-[30px] font-[500] text-[#FFFFFF]">
+        <div className="font-ms mt-[40px] px-[32px] text-[20px] font-[500] text-[#FFFFFF] lg:text-[30px]">
           The best online creators in one place
         </div>
       </div>
 
-      <div className="flex w-[55%] flex-col justify-center">
-        <div className="ml-[104px] flex w-[450px] flex-col">
-          <div className="text-[25px] font-[400] text-[#1A1A1A]">
-            {user.data.role === ROLES.CUSTOMER ? "Log in" : "Creator sign-in"}
+      <div className="flex flex-1 flex-col items-center justify-center px-[24px]">
+        <div className="mx-[24px] flex w-full flex-col md:w-[450px]">
+          <div className="flex justify-center gap-[16px] md:hidden">
+            <Logo />
+            <h1 className="font-bc text-[38px] font-[500] text-[#00AFF0]">
+              Onlyfansfinder.ai
+            </h1>
+          </div>
+
+          <div className="font-ms mt-[80px] block px-[48px] text-center text-[20px] font-[500] text-[#00AFF0] md:hidden">
+            The best online{" "}
+            {user.data.role === ROLES.CUSTOMER ? "customers" : "creators"} in
+            one place
+          </div>
+
+          <div className="mt-[80px] text-center text-[18px] font-[500] text-[#1A1A1A] md:hidden">
+            Log in
+          </div>
+
+          <div className="hidden text-[25px] font-[400] text-[#1A1A1A] md:block">
+            {user.data.role === ROLES.CUSTOMER
+              ? "Customer sign-in"
+              : "Creator sign-in"}
           </div>
 
           <div className="mt-[24px]">
-            <Input className="h-[72px]" placeholder="Email" />
+            <Input className="h-[48px] md:h-[72px]" placeholder="Email" />
           </div>
 
           <div className="mt-[36px]">
-            <Input className="h-[72px]" placeholder="Password" />
+            <Input className="h-[48px] md:h-[72px]" placeholder="Password" />
           </div>
 
           <div className="mt-[36px]">
-            <Button className="font-ms h-[60px] w-full bg-[#00AFF0] text-center text-[20px] font-[500] text-[#FFFFFF]">
+            <Button className="font-ms h-[48px] w-full bg-[#00AFF0] text-center text-[20px] font-[500] text-[#FFFFFF] md:h-[60px]">
               Login
             </Button>
           </div>
 
-          <div className="mt-[32px] flex justify-between text-[20px] font-[400] text-[#00AFF0]">
+          <div className="mt-[32px] flex justify-center gap-[8px] text-[16px] font-[400] text-[#00AFF0] md:justify-between md:text-[20px]">
             <div className="cursor-pointer" onClick={handleCreatorSignInClick}>
               {user.data.role === ROLES.CUSTOMER
                 ? "Creator Sign-In"
