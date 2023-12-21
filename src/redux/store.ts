@@ -3,12 +3,15 @@
 "use client";
 
 import { configureStore } from "@reduxjs/toolkit";
-import { userSlice } from "./features/userSlice";
+
+import { signinSlice } from "./features/signinSlice";
+import { signupSlice } from "./features/signupSlice";
 
 export const makeStore = () =>
   configureStore({
     reducer: {
-      [userSlice.name]: userSlice.reducer
+      [signinSlice.name]: signinSlice.reducer,
+      [signupSlice.name]: signupSlice.reducer
     }
   });
 

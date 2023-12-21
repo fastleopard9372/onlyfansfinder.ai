@@ -47,7 +47,7 @@ export default function RootLayout({
       className={`${balooChettan2.variable} ${montSerrat.variable} ${cabin.variable}`}
     >
       <head>
-        <link rel="icon" href="/favicon.png" sizes="any" />
+        <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
 
       <body className={cabin.className} style={{ minWidth: 400 }}>

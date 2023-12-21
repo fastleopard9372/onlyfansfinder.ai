@@ -10,17 +10,19 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { getUser, setRole } from "@/redux/features/userSlice";
 
 import { ROLES, SITE_TITLE } from "@/utils/constants";
+import { getSignin, setRole } from "@/redux/features/signinSlice";
 
 export default function SignIn() {
-  const user = useAppSelector(getUser);
+  const signin = useAppSelector(getSignin);
   const dispatch = useAppDispatch();
 
   const handleCreatorSignInClick = () => {
     dispatch(
-      setRole(user.data.role === ROLES.CREATOR ? ROLES.CUSTOMER : ROLES.CREATOR)
+      setRole(
+        signin.data.role === ROLES.CREATOR ? ROLES.CUSTOMER : ROLES.CREATOR
+      )
     );
   };
 
@@ -50,7 +52,7 @@ export default function SignIn() {
 
           <div className="font-ms mt-[80px] block px-[48px] text-center text-[20px] font-[500] text-[#00AFF0] md:hidden">
             The best online{" "}
-            {user.data.role === ROLES.CUSTOMER ? "customers" : "creators"} in
+            {signin.data.role === ROLES.CUSTOMER ? "customers" : "creators"} in
             one place
           </div>
 
@@ -59,7 +61,7 @@ export default function SignIn() {
           </div>
 
           <div className="hidden text-[25px] font-[400] text-[#1A1A1A] md:block">
-            {user.data.role === ROLES.CUSTOMER
+            {signin.data.role === ROLES.CUSTOMER
               ? "Customer sign-in"
               : "Creator sign-in"}
           </div>
@@ -88,7 +90,7 @@ export default function SignIn() {
 
           <div className="mt-[32px] flex justify-center gap-[8px] text-[16px] font-[400] text-[#00AFF0] md:justify-between md:text-[20px]">
             <div className="cursor-pointer" onClick={handleCreatorSignInClick}>
-              {user.data.role === ROLES.CUSTOMER
+              {signin.data.role === ROLES.CUSTOMER
                 ? "Creator Sign-In"
                 : "Customer Sign-In"}
             </div>
