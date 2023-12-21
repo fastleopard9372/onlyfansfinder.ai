@@ -38,7 +38,7 @@ const initialState: ISignup = {
     name: "",
     email: "",
     phone: "",
-    age: -1,
+    age: 0,
     address: "",
 
     qa: [],
@@ -74,7 +74,7 @@ export const signupSlice = createSlice({
   }
 });
 
-export const { setRole, setData } = signupSlice.actions;
+export const { setRole, setStage, setData } = signupSlice.actions;
 export const getSignup = (state: RootState) => state.Signup;
 
 export default signupSlice.reducer;

@@ -5,18 +5,40 @@
 
 import Link from "next/link";
 
+import { LuEye, LuEyeOff } from "react-icons/lu";
+import { useState } from "react";
 import Logo from "@/components/_layout/Logo";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import ButtonExt from "@/components/_uiext/ButtonExt";
+import InputExt from "@/components/_uiext/InputExt";
+import InputIconExt from "@/components/_uiext/InputIconExt";
 
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 import { ROLES, SITE_TITLE } from "@/utils/constants";
-import { getSignin, setRole } from "@/redux/features/signinSlice";
+import { getSignin, setData, setRole } from "@/redux/features/signinSlice";
 
 export default function SignIn() {
   const signin = useAppSelector(getSignin);
   const dispatch = useAppDispatch();
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleFieldChange =
+    (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(
+        setData({
+          [field]: e.target.value
+        })
+      );
+    };
+
+  const handleShowPassword = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  const handleLoginClick = () => {
+    console.error("Login clicked");
+  };
 
   const handleCreatorSignInClick = () => {
     dispatch(
@@ -42,7 +64,7 @@ export default function SignIn() {
       </div>
 
       <div className="flex flex-1 flex-col items-center justify-center px-[24px]">
-        <div className="mx-[24px] flex w-full flex-col md:w-[450px]">
+        <div className="flex w-full flex-col md:w-[450px]">
           <div className="flex justify-center gap-[16px] md:hidden">
             <Logo />
             <h1 className="font-bc text-[38px] font-[500] text-[#00AFF0]">
@@ -67,25 +89,31 @@ export default function SignIn() {
           </div>
 
           <div className="mt-[24px]">
-            <Input
+            <InputExt
               type="email"
-              className="h-[48px] md:h-[72px]"
               placeholder="Email"
+              onChange={handleFieldChange("email")}
             />
           </div>
 
           <div className="mt-[36px]">
-            <Input
-              type="password"
-              className="h-[48px] md:h-[72px]"
+            <InputIconExt
+              type={!showPassword ? "password" : "text"}
               placeholder="Password"
+              icon={
+                !showPassword ? (
+                  <LuEye className="text-[20px] text-[#737373]" />
+                ) : (
+                  <LuEyeOff className="text-[20px] text-[#737373]" />
+                )
+              }
+              onInputChange={handleFieldChange("password")}
+              onIconClick={handleShowPassword}
             />
           </div>
 
           <div className="mt-[36px]">
-            <Button className="font-ms h-[48px] w-full bg-[#00AFF0] text-center text-[20px] font-[500] text-[#FFFFFF] md:h-[60px]">
-              Login
-            </Button>
+            <ButtonExt onClick={handleLoginClick}>Login</ButtonExt>
           </div>
 
           <div className="mt-[32px] flex justify-center gap-[8px] text-[16px] font-[400] text-[#00AFF0] md:justify-between md:text-[20px]">
@@ -97,7 +125,7 @@ export default function SignIn() {
             <span>|</span>
             <Link href="/forget">Forgotten password?</Link>
             <span>|</span>
-            <span className="cursor-pointer">Sign up</span>
+            <Link href="/signup">Sign up</Link>
           </div>
         </div>
       </div>

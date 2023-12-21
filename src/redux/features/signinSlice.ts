@@ -29,17 +29,13 @@ export const signinSlice = createSlice({
       state.data.role = action.payload;
     },
 
-    setEmail: (state: ISignin, action) => {
-      state.data.email = action.payload;
-    },
-
-    setPassword: (state: ISignin, action) => {
-      state.data.password = action.payload;
+    setData: (state: ISignin, action) => {
+      state.data = { ...state.data, ...action.payload };
     }
   }
 });
 
-export const { setRole, setEmail, setPassword } = signinSlice.actions;
+export const { setRole, setData } = signinSlice.actions;
 export const getSignin = (state: RootState) => state.Signin;
 
 export default signinSlice.reducer;

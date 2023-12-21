@@ -11,7 +11,9 @@
     "Signup",
     "swiper",
     "tailwindcss",
-    "toastify"
+    "toastify",
+    "uiext",
+    "uuidv"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
