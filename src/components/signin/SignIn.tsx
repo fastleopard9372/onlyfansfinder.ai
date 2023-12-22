@@ -4,9 +4,12 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+import { useState } from "react";
 
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import { useState } from "react";
+
 import Logo from "@/components/_layout/Logo";
 import ButtonExt from "@/components/_uiext/ButtonExt";
 import InputExt from "@/components/_uiext/InputExt";
@@ -16,8 +19,10 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 import { ROLES, SITE_TITLE } from "@/utils/constants";
 import { getSignin, setData, setRole } from "@/redux/features/signinSlice";
+import { setRole as setSignupRole } from "@/redux/features/signupSlice";
 
 export default function SignIn() {
+  const router = useRouter();
   const signin = useAppSelector(getSignin);
   const dispatch = useAppDispatch();
 
@@ -37,12 +42,18 @@ export default function SignIn() {
   };
 
   const handleLoginClick = () => {
-    console.error("Login clicked");
+    router.push("/search");
   };
 
   const handleCreatorSignInClick = () => {
     dispatch(
       setRole(
+        signin.data.role === ROLES.CREATOR ? ROLES.CUSTOMER : ROLES.CREATOR
+      )
+    );
+
+    dispatch(
+      setSignupRole(
         signin.data.role === ROLES.CREATOR ? ROLES.CUSTOMER : ROLES.CREATOR
       )
     );
