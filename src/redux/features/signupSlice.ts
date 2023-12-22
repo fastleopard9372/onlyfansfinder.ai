@@ -34,7 +34,7 @@ const initialState: ISignup = {
   totalStage: 3,
 
   data: {
-    role: ROLES.CUSTOMER,
+    role: ROLES.CREATOR,
     name: "",
     email: "",
     phone: "",
