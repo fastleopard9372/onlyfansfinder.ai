@@ -5,21 +5,24 @@
 
 import { useRouter } from "next/navigation";
 
-import { LuChevronLeft } from "react-icons/lu";
+import { LuChevronLeft, LuEye, LuEyeOff } from "react-icons/lu";
 
-import { getSignup, setStage } from "@/redux/features/signupSlice";
+import { useState } from "react";
+import { getSignup, setData, setStage } from "@/redux/features/signupSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 import { SITE_TITLE } from "@/utils/constants";
 
 import Logo from "@/components/_layout/Logo";
-import InputExt from "@/components/_uiext/InputExt";
 import ButtonExt from "@/components/_uiext/ButtonExt";
+import InputIconExt from "@/components/_uiext/InputIconExt";
 
 export default function CustomerSignupStep3() {
   const router = useRouter();
   const signup = useAppSelector(getSignup);
   const dispatch = useAppDispatch();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleGoBackClick = () => {
     if (signup.stage === 1) {
@@ -33,6 +36,21 @@ export default function CustomerSignupStep3() {
     if (signup.stage < signup.totalStage) {
       dispatch(setStage(signup.stage + 1));
     }
+  };
+
+  const handleFieldChange =
+    (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (field === "password") {
+        dispatch(
+          setData({
+            [field]: e.target.value
+          })
+        );
+      }
+    };
+
+  const handleShowPassword = () => {
+    setShowPassword((prev) => !prev);
   };
 
   return (
@@ -59,27 +77,41 @@ export default function CustomerSignupStep3() {
           </div>
 
           <div className="mt-[52px]">
-            <InputExt type="text" placeholder="Your Name" />
+            <InputIconExt
+              type={!showPassword ? "password" : "text"}
+              placeholder="New Password"
+              icon={
+                !showPassword ? (
+                  <LuEye className="text-[20px] text-[#737373]" />
+                ) : (
+                  <LuEyeOff className="text-[20px] text-[#737373]" />
+                )
+              }
+              onInputChange={handleFieldChange("password")}
+              onIconClick={handleShowPassword}
+            />
           </div>
 
           <div className="mt-[24px]">
-            <InputExt type="email" placeholder="Email" />
-          </div>
-
-          <div className="mt-[24px]">
-            <InputExt type="text" placeholder="Phone number" />
-          </div>
-
-          <div className="mt-[24px]">
-            <InputExt type="text" placeholder="Your age" />
-          </div>
-
-          <div className="mt-[24px]">
-            <InputExt type="text" placeholder="Where do you live?" />
+            <InputIconExt
+              type={!showPassword ? "password" : "text"}
+              placeholder="Repeat Password"
+              icon={
+                !showPassword ? (
+                  <LuEye className="text-[20px] text-[#737373]" />
+                ) : (
+                  <LuEyeOff className="text-[20px] text-[#737373]" />
+                )
+              }
+              onInputChange={handleFieldChange("password")}
+              onIconClick={handleShowPassword}
+            />
           </div>
 
           <div className="mt-[40px]">
-            <ButtonExt onClick={handleContinueClick}>Continue</ButtonExt>
+            <ButtonExt onClick={handleContinueClick}>
+              Create password and start now!
+            </ButtonExt>
           </div>
         </div>
       </div>

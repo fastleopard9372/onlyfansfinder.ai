@@ -50,7 +50,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" sizes="any" />
       </head>
 
-      <body className={cabin.className} style={{ minWidth: 400 }}>
+      <body className={cabin.className} style={{ minWidth: 320 }}>
         {/* <NextAuthProvider> */}
         <StoreProvider>
           <ThemeProvider

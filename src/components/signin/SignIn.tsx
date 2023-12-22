@@ -88,7 +88,7 @@ export default function SignIn() {
               : "Creator sign-in"}
           </div>
 
-          <div className="mt-[24px]">
+          <div className="mt-[12px] md:mt-[24px]">
             <InputExt
               type="email"
               placeholder="Email"
@@ -96,7 +96,7 @@ export default function SignIn() {
             />
           </div>
 
-          <div className="mt-[36px]">
+          <div className="mt-[12px] md:mt-[36px]">
             <InputIconExt
               type={!showPassword ? "password" : "text"}
               placeholder="Password"
@@ -112,11 +112,11 @@ export default function SignIn() {
             />
           </div>
 
-          <div className="mt-[36px]">
+          <div className="mt-[28px] md:mt-[36px]">
             <ButtonExt onClick={handleLoginClick}>Login</ButtonExt>
           </div>
 
-          <div className="mt-[32px] flex justify-center gap-[8px] text-[16px] font-[400] text-[#00AFF0] md:justify-between md:text-[20px]">
+          <div className="mt-[20px] flex justify-between gap-[8px] text-[16px] font-[400] text-[#00AFF0] md:mt-[32px] md:text-[20px]">
             <div className="cursor-pointer" onClick={handleCreatorSignInClick}>
               {signin.data.role === ROLES.CUSTOMER
                 ? "Creator Sign-In"
