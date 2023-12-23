@@ -31,7 +31,7 @@ export interface ISignup {
 
 const initialState: ISignup = {
   stage: 1,
-  totalStage: 3,
+  totalStage: 4,
 
   data: {
     role: ROLES.CREATOR,

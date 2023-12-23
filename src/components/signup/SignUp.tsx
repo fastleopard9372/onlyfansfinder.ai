@@ -23,7 +23,7 @@ export default function SignUp() {
   const signup = useAppSelector(getSignup);
 
   return (
-    <section className="flex h-screen w-full overflow-x-hidden">
+    <section className="flex min-h-screen w-full overflow-x-hidden">
       <div className="hidden flex-1 flex-col items-center bg-[#00AFF0] bg-[url('/images/signin/bg.png')] bg-left-bottom bg-no-repeat md:flex">
         <div className="mt-[132px] flex flex-wrap justify-center gap-[16px]">
           <Logo />

@@ -123,7 +123,7 @@ export default function CustomerSignupStep2() {
                 </div>
               ))}
             </div>
-            <ScrollBar orientation="vertical" asChild forceMount />
+            <ScrollBar orientation="vertical" />
           </ScrollArea>
 
           <div className="mt-[40px]">
