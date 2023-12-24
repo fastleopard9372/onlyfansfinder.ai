@@ -32,10 +32,8 @@ export default function CreatorSignupStep4() {
     }
   };
 
-  const handleContinueClick = () => {
-    if (signup.stage < signup.totalStage) {
-      dispatch(setStage(signup.stage + 1));
-    }
+  const handleStartNowClick = () => {
+    router.push("/signin");
   };
 
   const handleFieldChange =
@@ -73,7 +71,7 @@ export default function CreatorSignupStep4() {
           </div>
 
           <div className="text-center text-[16px] font-[400] text-[#1A1A1A] md:text-[20px]">
-            Create your password and start viewing your favorite content
+            Create your password and start sharing your content
           </div>
 
           <div className="mt-[52px]">
@@ -109,8 +107,11 @@ export default function CreatorSignupStep4() {
           </div>
 
           <div className="mt-[40px]">
-            <ButtonExt onClick={handleContinueClick}>
-              Create password and start now!
+            <ButtonExt onClick={handleStartNowClick}>
+              <span className="hidden md:block">
+                Create password and start now!
+              </span>
+              <span className="block md:hidden">Start now</span>
             </ButtonExt>
           </div>
         </div>

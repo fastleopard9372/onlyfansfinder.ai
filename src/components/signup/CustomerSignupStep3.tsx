@@ -32,10 +32,8 @@ export default function CustomerSignupStep3() {
     }
   };
 
-  const handleContinueClick = () => {
-    if (signup.stage < signup.totalStage) {
-      dispatch(setStage(signup.stage + 1));
-    }
+  const handleStartNowClick = () => {
+    router.push("/signin");
   };
 
   const handleFieldChange =
@@ -109,8 +107,11 @@ export default function CustomerSignupStep3() {
           </div>
 
           <div className="mt-[40px]">
-            <ButtonExt onClick={handleContinueClick}>
-              Create password and start now!
+            <ButtonExt onClick={handleStartNowClick}>
+              <span className="hidden md:block">
+                Create password and start now!
+              </span>
+              <span className="block md:hidden">Start now</span>
             </ButtonExt>
           </div>
         </div>

@@ -23,7 +23,10 @@ export default function CheckboxExt({ label, checked, onCheckChange }: Props) {
         checked={checked}
         onCheckedChange={onCheckChange}
       />
-      <Label htmlFor={uuid} className="text-[18px] font-[400] text-[#303030]">
+      <Label
+        htmlFor={uuid}
+        className="text-[16px] font-[400] text-[#303030] md:text-[18px]"
+      >
         {label}
       </Label>
     </div>

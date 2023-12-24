@@ -98,7 +98,7 @@ export default function CustomerSignupStep2() {
                 "Question 3 (multiple selection)"
               ].map((question) => (
                 <div key={question} className="flex flex-col">
-                  <div className="text-[20px] font-[400] text-[#303030]">
+                  <div className="text-[18px] font-[400] text-[#303030] md:text-[20px]">
                     {question}
                   </div>
 

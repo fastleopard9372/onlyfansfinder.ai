@@ -115,10 +115,9 @@ export default function CreatorSignupStep3() {
           ))}
         </div>
 
-        <div className="flex w-full flex-col md:w-[450px]">
-          <div className="mt-[40px]">
-            <ButtonExt onClick={handleContinueClick}>Continue</ButtonExt>
-          </div>
+        <div className="mt-[40px] flex w-full flex-col md:w-[450px]">
+          <ButtonExt onClick={handleContinueClick}>Add promotion</ButtonExt>
+          <div>Add promotion later</div>
         </div>
       </div>
 

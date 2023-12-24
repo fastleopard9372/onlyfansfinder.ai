@@ -31,10 +31,10 @@ export interface ISignup {
 
 const initialState: ISignup = {
   stage: 1,
-  totalStage: 4,
+  totalStage: 3,
 
   data: {
-    role: ROLES.CREATOR,
+    role: ROLES.CUSTOMER,
     name: "",
     email: "",
     phone: "",
