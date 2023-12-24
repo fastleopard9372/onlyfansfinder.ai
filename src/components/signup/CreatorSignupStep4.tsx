@@ -33,6 +33,7 @@ export default function CreatorSignupStep4() {
   };
 
   const handleStartNowClick = () => {
+    dispatch(setStage(1));
     router.push("/signin");
   };
 

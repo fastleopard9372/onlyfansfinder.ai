@@ -62,7 +62,7 @@ export default function CreatorSignupStep2() {
           <ChipInputExt />
 
           <div className="mt-[40px]">
-            <ButtonExt onClick={handleContinueClick}>Continue</ButtonExt>
+            <ButtonExt onClick={handleContinueClick}>Add Tags</ButtonExt>
           </div>
         </div>
       </div>

@@ -33,6 +33,7 @@ export default function CustomerSignupStep3() {
   };
 
   const handleStartNowClick = () => {
+    dispatch(setStage(1));
     router.push("/signin");
   };
 

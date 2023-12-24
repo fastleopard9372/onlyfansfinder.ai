@@ -1,9 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
 "use client";
 
 import { useState } from "react";
+
+import { BsTagFill } from "react-icons/bs";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -12,17 +13,34 @@ interface IChip {
   label: string;
 }
 
+function Chip(props: IChip) {
+  const { uuid, label } = props;
+
+  return (
+    <div
+      data-uuid={uuid}
+      className="flex items-center justify-center gap-[8px] rounded-[10px] bg-[#ECB35E] px-[12px] py-[4px]"
+    >
+      <BsTagFill className="text-[20px] text-[#444444]" />
+      <span className="font-ms text-[16px] font-[400] text-[#1A1A1A]">
+        {label}
+      </span>
+    </div>
+  );
+}
+
 export default function ChipInputExt() {
   const [chips, setChips] = useState<IChip[]>([]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.keyCode === 13) {
       e.preventDefault();
+      const label = (e.target as HTMLTextAreaElement).value.trim();
       setChips((prev) => [
         ...prev,
         {
           uuid: uuidv4(),
-          label: (e.target as HTMLTextAreaElement).value.trim()
+          label
         }
       ]);
       (e.target as HTMLTextAreaElement).value = "";
@@ -30,9 +48,17 @@ export default function ChipInputExt() {
   };
 
   return (
-    <div className="min-h-[240px] border border-[#8A8A8A] p-[16px]">
+    <div className="flex min-h-[240px] flex-col gap-[16px] rounded-[5px] border border-[#8A8A8A] p-[16px]">
+      {chips.length > 0 && (
+        <div className="flex flex-wrap gap-[16px]">
+          {chips.map((c) => (
+            <Chip key={c.uuid} {...c} />
+          ))}
+        </div>
+      )}
+
       <textarea
-        className="h-full w-full outline-none"
+        className="w-full flex-1 outline-none"
         onKeyDown={handleKeyDown}
       />
     </div>
