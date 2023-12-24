@@ -79,7 +79,13 @@ export default function CreatorSignupStep3() {
     }
   };
 
-  const handleContinueClick = () => {
+  const handleAddPromotionClick = () => {
+    if (signup.stage < signup.totalStage) {
+      dispatch(setStage(signup.stage + 1));
+    }
+  };
+
+  const handleAddPromotionLaterClick = () => {
     if (signup.stage < signup.totalStage) {
       dispatch(setStage(signup.stage + 1));
     }
@@ -115,9 +121,14 @@ export default function CreatorSignupStep3() {
           ))}
         </div>
 
-        <div className="mt-[40px] flex w-full flex-col md:w-[450px]">
-          <ButtonExt onClick={handleContinueClick}>Add promotion</ButtonExt>
-          <div>Add promotion later</div>
+        <div className="mt-[40px] flex w-full flex-col gap-[16px] md:w-[450px]">
+          <ButtonExt onClick={handleAddPromotionClick}>Add promotion</ButtonExt>
+          <div
+            className="cursor-pointer text-center text-[16px] font-[400] text-[#9F9F9F] md:text-[20px]"
+            onClick={handleAddPromotionLaterClick}
+          >
+            Add promotion later
+          </div>
         </div>
       </div>
 
