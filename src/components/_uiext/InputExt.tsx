@@ -8,19 +8,21 @@ interface Props {
 
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  className?: string
 }
 
 export default function InputExt({
   type,
   placeholder,
   value,
-  onChange
+  onChange,
+  className
 }: Props) {
   return (
     <Input
       type={type}
       placeholder={placeholder}
-      className="h-[48px] md:h-[72px]"
+      className={`h-[48px] md:h-[72px] ${className}`}
       value={value}
       onChange={onChange}
     />

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import { SITE_TITLE } from "@/utils/constants";
 
-import Search from "@/components/search";
+import Result_1 from "@/components/result_1";
 
 export const metadata: Metadata = {
   title: `${SITE_TITLE} - Search`,
@@ -11,6 +11,6 @@ export const metadata: Metadata = {
 
 export default function SearchPage() {
   return <>
-    <Search />
+    <Result_1 />
   </>
 }

@@ -121,3 +121,43 @@
 .font-ca {
   font-family: var(--font-cabin);
 }
+.myPopover button {
+  width: 100%;
+}
+#app {
+  height: 100%;
+}
+html,
+body {
+}
+
+.swiper-body {
+  position: relative;
+  height: 100%;
+  /* margin-left: -300px !important; */
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.swiper-pagination-bullet {
+  width: 30px !important;
+  height: 8px !important;
+  border-radius: 5px !important;
+}
+.swiper-pagination {
+  top: 10px !important;
+  height: 25px !important;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 380px !important;
+}
+/* 
+.swiper-slide img {
+  display: block;
+  width: 100%;
+} */

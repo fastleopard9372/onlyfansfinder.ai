@@ -114,11 +114,12 @@ export default function CreatorSignupStep3() {
             Get more users to see your content
           </div>
         </div>
-
-        <div className="flex w-full justify-center gap-[32px]">
-          {subscriptions.map((s) => (
-            <SubscriptionCard key={s.id} {...s} />
-          ))}
+        <div className="w-full h-[450px] relative max-sm:overflow-x-scroll">
+          <div className="absolute flex w-full justify-center gap-[32px] max-sm:w-[600px]">
+            {subscriptions.map((s) => (
+              <SubscriptionCard key={s.id} {...s} />
+            ))}
+          </div>
         </div>
 
         <div className="mt-[40px] flex w-full flex-col gap-[16px] md:w-[450px]">
