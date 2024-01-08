@@ -26,7 +26,7 @@ interface Props {
 export default function SelectExt({ label, children, className, onSelectChange }: Props) {
   const uuid = uuidv4();
   return (
-    <Select className={className}>
+    <Select>
       <SelectTrigger>
         <SelectValue className="grow text-left" placeholder={label} />
       </SelectTrigger>

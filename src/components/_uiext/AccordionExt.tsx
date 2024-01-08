@@ -7,7 +7,7 @@ import { Accordion } from "@/components/ui/accordion";
 interface Props {
   children?: React.ReactNode;
   className?: string;
-  type?: string;
+  type?: 'single' | 'multiple';
   onClick?: (event: React.MouseEvent) => void;
 }
 export default function AccordionExt({ children, className, type, onClick }: Props) {

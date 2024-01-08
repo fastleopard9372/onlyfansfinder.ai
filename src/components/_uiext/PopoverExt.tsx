@@ -15,10 +15,7 @@ export default function PopoverExt({ children, trigger, className, onClick }: Pr
 
   return (
     <div className="flex items-center justify-between gap-[12px] w-full myPopover">
-      <Popover
-        id={uuid}
-        className={cn("w-full data-[state=checked]:border-[#EFEFEF] data-[state=checked]:bg-[#EFEFEF]", className)}
-      >
+      <Popover>
         <PopoverTrigger>
           {trigger}
         </PopoverTrigger>
