@@ -1,10 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
-
-import { ROLES } from "@/utils/constants";
 import { RootState } from "@/redux/store";
-import { forEach } from "lodash";
 import { IArticle } from "@/types/interfaces";
 
 const initialState: IArticle[] = [

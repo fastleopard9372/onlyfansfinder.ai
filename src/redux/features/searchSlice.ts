@@ -2,9 +2,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit";
 
-import { ROLES } from "@/utils/constants";
 import { RootState } from "@/redux/store";
-import { forEach } from "lodash";
 
 export interface IList {
   name: string;
@@ -169,7 +167,7 @@ export const searchSlice = createSlice({
       state = { ...state };
     },
     setSearch: (state: ISearch, action) => {
-      state = { ...state, search: action.payload };
+      state.search = action.payload;
     }
   }
 });

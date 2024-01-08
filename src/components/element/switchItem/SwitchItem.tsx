@@ -5,18 +5,18 @@ import React, { useEffect } from 'react'
 import { useRouter } from "next/navigation";
 import SwitchExt from "@/components/_uiext/SwitchExt";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { getState, setState } from "@/redux/features/switchSlice";
+import { getState, setState, getPage } from "@/redux/features/switchSlice";
 const SwitchItem = () => {
   const state = useAppSelector(getState);
+  const page = useAppSelector(getPage);
   const dispatch = useAppDispatch();
   const router = useRouter();
   const handleCheckChange = (_state: boolean) => {
     dispatch(setState(!_state));
   }
-
   useEffect(() => {
     if (state) {
-      router.push('/search');
+      router.push(page);
     } else
       router.push('/swipe');
   }, [state])
