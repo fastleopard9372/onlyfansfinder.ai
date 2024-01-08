@@ -38,7 +38,7 @@ const Search = () => {
         </div>
       </div>
       {/* Body */}
-      <div className='flex flex-col justify-center items-center'>
+      <div className='flex flex-col justify-center items-center  px-2'>
         <div className="flex flex-row items-center  space-x-2 rounded-full shadow-lg py-2 px-2 bg-[#F9F9F9] w-full sm:w-2/3 md:w-1/2">
           <SearchInput />
         </div>

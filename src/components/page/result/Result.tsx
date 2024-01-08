@@ -46,8 +46,8 @@ const Result = () => {
         <div className='text-[18px] font-normal text-left px-4 py-10 lg:px-20'>
           <div className='opacity-85'>About 2,546 result</div>
           <div className='text-[#1796D4]'>
-            <Link href="/" className='underline'>Onlyfans</Link>&nbsp;>&nbsp;
-            <Link href="/" className='underline'>Top</Link>&nbsp;>&nbsp;
+            <Link href="/" className='underline'>Onlyfans</Link>&nbsp;&gt;&nbsp;
+            <Link href="/" className='underline'>Top</Link>&nbsp;&gt;&nbsp;
             <Link href="/" className='underline'>profiles</Link>
           </div>
           <div className='text-[35px] text-[#1a1a1a] mt-10'>🔥 50 Best Free trial, Today in 2023</div>
