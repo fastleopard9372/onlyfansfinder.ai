@@ -1,5 +1,5 @@
-import { authUserLogout, addAuthToken } from "../features/auth/authSlice";
-import { authStorage } from "../../utils/browserStorage";
+import { authUserLogout, addAuthToken } from "@/redux/features/authSlice";
+import { authStorage } from "@/utils/browserStorage";
 
 const authMiddleware = (storeAPI) => (next) => (action) => {
   if (action.type === authUserLogout().type) {

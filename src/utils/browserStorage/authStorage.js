@@ -1,6 +1,6 @@
 import { storageChangeEvent } from "./customEvent";
 
-const storage = sessionStorage; // The storage to use
+const storage = typeof window !== "undefined" ? window.sessionStorage : false; // The storage to use
 
 const AuthTknName = "u:Id";
 const IsAuthenticatedName = "isAuthenticated";
@@ -52,7 +52,7 @@ const authStorage = {
     storage.removeItem(IsAuthenticatedName);
 
     window.dispatchEvent(storageChangeEvent);
-  },
+  }
 };
 
 export { authStorage };

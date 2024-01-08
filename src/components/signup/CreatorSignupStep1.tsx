@@ -15,7 +15,6 @@ import { SITE_TITLE } from "@/utils/constants";
 import Logo from "@/components/_layout/Logo";
 import InputExt from "@/components/_uiext/InputExt";
 import ButtonExt from "@/components/_uiext/ButtonExt";
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function CreatorSignupStep1() {
   const router = useRouter();

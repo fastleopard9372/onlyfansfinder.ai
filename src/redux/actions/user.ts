@@ -6,13 +6,12 @@ export function getUserProfile() {
     try {
       dispatch(authUserLoading({ loading: true }));
       const response = await API.getUserProfile();
-
       const user = response.data?.user;
 
       // Add authenticated user to redux store
       dispatch(addAuthUser({ user }));
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     } finally {
       dispatch(authUserLoading({ loading: false }));
     }

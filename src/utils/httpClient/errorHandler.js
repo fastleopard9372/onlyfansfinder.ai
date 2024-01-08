@@ -1,5 +1,5 @@
-import { authUserLogout } from "../../redux/features/auth/authSlice";
-import { newNotify } from "../../redux/features/notify/notifySlice";
+import { authUserLogout } from "@/redux/features/authSlice";
+import { newNotify } from "@/redux/features/notifySlice";
 
 /**
  * Axios Error Handler
@@ -23,33 +23,35 @@ function logError(error, store) {
     }
 
     // Fire to redux store with notification data
-    store?.dispatch(
-      newNotify({
-        variant: error.response.status,
-        msg: notificationMsg,
-      })
-    );
+    // store
+    // ?.dispatch
+    // newNotify({
+    //   variant: error.response.status,
+    //   msg: notificationMsg
+    // })
+    // ();
   }
   // The request was made but no response was received
   else if (error.request) {
     // Add custom variable on window object when network error occurs
     if (error?.code === "ERR_NETWORK") window.NetworkError = error?.code;
 
-    store?.dispatch(
-      newNotify({
-        variant: "danger",
-        msg: error.message,
-      })
-    );
+    // store
+    //   ?.dispatch
+    //   newNotify({
+    //     variant: "danger",
+    //     msg: error.message
+    //   })
+    //   ();
   }
   // Something happened in setting up the request that triggered an Error
   else {
-    store?.dispatch(
-      newNotify({
-        variant: "danger",
-        msg: "Oh no! An Error Occured!",
-      })
-    );
+    // store?.dispatch(
+    //   newNotify({
+    //     variant: "danger",
+    //     msg: "Oh no! An Error Occured!"
+    //   })
+    // );
   }
 }
 

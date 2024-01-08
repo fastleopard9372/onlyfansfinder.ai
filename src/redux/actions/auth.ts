@@ -8,37 +8,29 @@ import {
 import { newNotify } from "@/redux/features/notifySlice";
 import { getUserProfile } from "./user";
 import {error, success} from '@/lib/utils'
-export function login(data, callback) {
+export function login(data, router) {
   return async function (dispatch) {
     try {
       dispatch(authUserLoading({ loading: true }));
 
       const response = await API.login(data);
       const accessToken = response.data?.accessToken || response.data?.token;
-
       // Add the retrieved Access Token to redux store
       dispatch(addAuthToken({ token: accessToken }));
       // Load the user profile (will use the access token in redux store)
-     
-     
-      // dispatch(getUserProfile());
-
-      
-      console.log("---LOGIN SUCCESS---: ", response.data);
-    } catch (error) {
-      console.error(error);
-
-      // Call callback if exists
-      if (callback) {
-        callback(error);
-      }
+      dispatch(getUserProfile());
+      // console.log("---LOGIN SUCCESS---: ", response.data);
+      success("Login Success");
+      router.push("/search");
+    } catch (err) {
+      error(err.response.data.feedback);
     } finally {
       dispatch(authUserLoading({ loading: false }));
     }
   };
 }
 
-export function register(data, route) {
+export function register(data, router) {
   return async function (dispatch) {
     try {
       dispatch(authUserLoading({ loading: true }));
@@ -46,11 +38,11 @@ export function register(data, route) {
       const response = await API.signup(data);
       const { accessToken } = response.data;
       dispatch(addAuthToken({ token: accessToken }));
-      dispatch(getUserProfile());
+      // dispatch(getUserProfile());
       success("You registered successfully.");
-      route.push("/signin");
-    } catch (error) {
-      error(error);
+      router.push("/signin");
+    } catch (err) {
+      error(err);
     } finally {
       dispatch(authUserLoading({ loading: false }));
     }

@@ -1,8 +1,8 @@
 import http from "..";
-import logError from "../errorHandler";
-import { authStorage } from "../../browserStorage";
-import { addAuthToken } from "../../../redux/features/auth/authSlice";
-import { refreshAccessToken } from "../../../api";
+// import logError from "@/utils/httpClient/errorHandler";
+import { authStorage } from "@/utils/browserStorage";
+import { addAuthToken } from "@/redux/features/authSlice";
+import { refreshAccessToken } from "@/api";
 
 function runInterceptors(store) {
   /*
@@ -20,7 +20,7 @@ function runInterceptors(store) {
       return config;
     },
     (error) => {
-      logError(error, store);
+      // logError(error, store);
       return Promise.reject(error);
     }
   );
@@ -78,7 +78,7 @@ function runInterceptors(store) {
           }
         }
 
-        logError(error, store);
+        //    logError(error, store);
 
         return Promise.reject(error);
       }

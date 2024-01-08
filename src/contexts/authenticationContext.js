@@ -9,5 +9,5 @@ import { authStorage } from "../utils/browserStorage";
 // const userIsAuthenticated = hasToken || authStorage.isAuthenticated;
 
 export const AuthenticationContext = createContext({
-  userIsAuthenticated: false,
+  userIsAuthenticated: false
 });

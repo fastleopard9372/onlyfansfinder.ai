@@ -20,7 +20,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { ROLES, SITE_TITLE } from "@/utils/constants";
 import { getSignin, setData, setRole } from "@/redux/features/signinSlice";
 import { setRole as setSignupRole } from "@/redux/features/signupSlice";
-
+import { login } from "@/redux/actions";
 export default function SignIn() {
   const router = useRouter();
   const signin = useAppSelector(getSignin);
@@ -36,13 +36,13 @@ export default function SignIn() {
         })
       );
     };
-
   const handleShowPassword = () => {
     setShowPassword((prev) => !prev);
   };
 
   const handleLoginClick = () => {
-    router.push("/search");
+    dispatch(login(signin.data, router));
+    // router.push("/search");
   };
 
   const handleCreatorSignInClick = () => {

@@ -1,3 +1,5 @@
+"use client";
+
 import { Baloo_Chettan_2, Cabin, Montserrat } from "next/font/google";
 
 import { ToastContainer } from "react-toastify";
@@ -6,7 +8,13 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 import StoreProvider from "@/contexts/StoreProvider";
+import { Provider } from "react-redux";
 // import NextAuthProvider from "@/contexts/NextAuthProvider";
+import { makeStore } from "@/redux/store";
+
+import httpInterceptors from "@/utils/httpClient/interceptors";
+
+httpInterceptors.attach(makeStore); // Pass store
 
 const balooChettan2 = Baloo_Chettan_2({
   weight: ["400", "500", "600", "700", "800"],
@@ -52,7 +60,7 @@ export default function RootLayout({
 
       <body className={cabin.className} style={{ minWidth: 320 }}>
         {/* <NextAuthProvider> */}
-        <StoreProvider>
+        <Provider store={makeStore()}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -62,7 +70,7 @@ export default function RootLayout({
             {children}
             <ToastContainer />
           </ThemeProvider>
-        </StoreProvider>
+        </Provider>
         {/* </NextAuthProvider> */}
       </body>
     </html>
