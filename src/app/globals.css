@@ -149,6 +149,14 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+.swiper-3d .swiper-slide-shadow-right,
+.swiper-3d .swiper-slide-shadow-left {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 1)
+  ) !important;
+}
 .swiper-pagination-bullet {
   width: 30px !important;
   height: 8px !important;
