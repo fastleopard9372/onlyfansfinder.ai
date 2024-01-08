@@ -3,13 +3,14 @@ import Link from 'next/link'
 import * as React from 'react'
 import { SITE_TITLE } from "@/utils/constants";
 import Logo from "@/components/_layout/Logo";
-import SearchInput from '../../element/searchInput/SearchInput';
-import SwitchItem from '../../element/switchItem/SwitchItem';
-import Rating from "@/components/page/rating/Rating";
+import SearchInput from '../SearchInput';
+import SwitchItem from '../SwitchToggleButton';
+import Rating from "@/components/result/Rating";
 import { useAppSelector } from "@/redux/hooks";
 import { getData } from "@/redux/features/articleSlice";
+import { getData as getSelected } from "@/redux/features/searchSlice";
 const Result = () => {
-  const selected = useAppSelector(getData).selected;
+  const selected = useAppSelector(getSelected).selected;
   const data = useAppSelector(getData);
   return (
     <section className="flex flex-col min-h-screen w-full overflow-x-hidden">

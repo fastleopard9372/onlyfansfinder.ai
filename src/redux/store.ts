@@ -11,6 +11,7 @@ import { searchSlice } from "./features/searchSlice";
 import { articleSlice } from "./features/articleSlice";
 import { authSlice } from "./features/authSlice";
 import { notifySlice } from "./features/notifySlice";
+import { CreatorItemSlice } from "./features/creatorItemSlice";
 import authMiddleware from "./middlewares/authMiddleware";
 export const makeStore = () =>
   configureStore({
@@ -21,7 +22,8 @@ export const makeStore = () =>
       [searchSlice.name]: searchSlice.reducer,
       [articleSlice.name]: articleSlice.reducer,
       [authSlice.name]: authSlice.reducer,
-      [notifySlice.name]: notifySlice.reducer
+      [notifySlice.name]: notifySlice.reducer,
+      [CreatorItemSlice.name]: CreatorItemSlice.reducer
     },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(authMiddleware),

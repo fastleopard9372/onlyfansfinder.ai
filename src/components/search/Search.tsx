@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { ROLES, SITE_TITLE } from "@/utils/constants";
 import BigLogo from "@/components/_layout/BigLogo";
-import SearchFilter from '../../element/searchFilter/SearchFilter';
-import SearchInput from '../../element/searchInput/SearchInput';
-import SwitchItem from '../../element/switchItem/SwitchItem';
-import FooterItem from '../../element/footerItem/FooterItem';
+import SearchFilter from '../SearchFilter';
+import SearchInput from '../SearchInput';
+import SwitchItem from '../SwitchToggleButton';
+import FooterItem from './FooterItem';
 const data = [
   {
     url: "/images/cup.svg",

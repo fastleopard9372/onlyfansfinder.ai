@@ -14,7 +14,7 @@ import { SITE_TITLE } from "@/utils/constants";
 
 import Logo from "@/components/_layout/Logo";
 import ButtonExt from "@/components/_uiext/ButtonExt";
-import ChipInputExt from "../../_uiext/ChipInputExt";
+import ChipInputExt from "../_uiext/ChipInputExt";
 
 export default function CreatorSignupStep2() {
   const router = useRouter();

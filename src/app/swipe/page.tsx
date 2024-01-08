@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import { SITE_TITLE } from "@/utils/constants";
 
-import Swipe from "@/components/page/swipe/Swipe";
+import Swipe from "@/components/swipe/Swipe";
 
 export const metadata: Metadata = {
   title: `${SITE_TITLE} - Search`,

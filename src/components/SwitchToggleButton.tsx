@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import SwitchExt from "@/components/_uiext/SwitchExt";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { getState, setState, getPage } from "@/redux/features/switchSlice";
-const SwitchItem = () => {
+const SwitchToggleButton = () => {
   const state = useAppSelector(getState);
   const page = useAppSelector(getPage);
   const dispatch = useAppDispatch();
@@ -25,4 +25,4 @@ const SwitchItem = () => {
   )
 }
 
-export default SwitchItem
+export default SwitchToggleButton

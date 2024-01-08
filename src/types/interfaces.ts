@@ -23,3 +23,19 @@ export interface IArticle {
   content: string;
   share: IShare[];
 }
+export interface ICreatorItem {
+  _id?: string;
+  id?: number;
+  avatar: string;
+  name: string;
+  item: string[];
+  include: string[];
+  like: number;
+  show: number;
+  age: number;
+  location: string;
+  camera: number;
+  kind: string;
+  content: string;
+  share: IShare[];
+}

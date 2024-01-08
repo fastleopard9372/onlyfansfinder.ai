@@ -131,9 +131,16 @@ html,
 body {
 }
 
+.swipeCardSection {
+}
+@media (min-width: 1280px) {
+  .swipeCardSection {
+    height: calc(100vh - 140px);
+  }
+}
 .swiper-body {
   position: relative;
-  height: 100%;
+  /* height: 100%; */
   /* margin-left: -300px !important; */
 }
 

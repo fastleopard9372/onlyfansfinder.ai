@@ -1,9 +1,9 @@
 "use client";
 import * as React from 'react'
-import CheckboxExt from '../../_uiext/CheckboxExt';
-import SelectExt from '../../_uiext/SelectExt';
-import AccordionExt from '../../_uiext/AccordionExt';
-import ScrollAreaExt from '../../_uiext/ScrollAreaExt';
+import CheckboxExt from './_uiext/CheckboxExt';
+import SelectExt from './_uiext/SelectExt';
+import AccordionExt from './_uiext/AccordionExt';
+import ScrollAreaExt from './_uiext/ScrollAreaExt';
 import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { SelectGroup } from "@/components/ui/select";
 

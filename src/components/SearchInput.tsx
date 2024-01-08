@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { useRouter } from "next/navigation";
 import InputExt from "@/components/_uiext/InputExt";
-import ButtonExt from '../../_uiext/ButtonExt';
+import ButtonExt from './_uiext/ButtonExt';
 
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { getData, getSearch, setSearch } from "@/redux/features/searchSlice";

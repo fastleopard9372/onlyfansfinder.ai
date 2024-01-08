@@ -6,11 +6,11 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 import { SITE_TITLE } from "@/utils/constants";
 import Logo from "@/components/_layout/Logo";
 
-import SwitchItem from '@/components/element/switchItem/SwitchItem';
-import Card from "@/components/element/card/Card";
-import CreatorItem from "@/components/element/creatorItem";
+import SwitchItem from '@/components/SwitchToggleButton';
+import Card from "@/components/swipe/SwipingCard";
+import CreatorItem from "@/components/swipe/CreatorItem";
 import { useAppSelector } from "@/redux/hooks";
-import { getData } from "@/redux/features/articleSlice";
+import { getData } from "@/redux/features/creatorItemSlice";
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -35,7 +35,7 @@ const Swipe = () => {
         </div>
       </div>
       {/* Body */}
-      <div className='flex flex-row'>
+      <div className='flex flex-row swipeCardSection'>
         <div className='sm:w-[420px] sm:min-w-[420px] max-sm:hidden h-[100px]'></div>
         <div className='flex flex-col justify-center items-center w-[420px]  max-sm:hidden h-screen absolute top-0 px-3 z-0 bg-[#F6F6F6]'>
           <div className='h-[125px] w-full'></div>
@@ -68,7 +68,7 @@ const Swipe = () => {
             </div>
           </div>
         </div>
-        <div className='overflow-hidden'>
+        <div className='overflow-hidden flex justify-center items-center'>
           <div className='flex flex-row px-10 max-sm:px-2 swiper-body'>
             <Swiper
               effect={'coverflow'}

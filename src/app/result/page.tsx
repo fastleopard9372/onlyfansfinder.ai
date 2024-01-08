@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import { SITE_TITLE } from "@/utils/constants";
 
-import Result from "@/components/page/result/Result";
+import Result from "@/components/result/Result";
 
 export const metadata: Metadata = {
   title: `${SITE_TITLE} - Search`,

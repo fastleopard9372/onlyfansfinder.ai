@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Link from 'next/link';
-import { IArticle } from "@/types/interfaces";
-const CreatorItem = (data: any) => {
+import { ICreatorItem } from "@/types/interfaces";
+const CreatorItem = (data: ICreatorItem) => {
   let include = '';
   let flag = 0;
   data.include.forEach(element => {
