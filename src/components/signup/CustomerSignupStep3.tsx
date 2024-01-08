@@ -3,27 +3,27 @@
 
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-
 import { LuChevronLeft, LuEye, LuEyeOff } from "react-icons/lu";
 
-import { useState } from "react";
+import { error, success } from "@/lib/utils";
 import { getSignup, setData, setStage } from "@/redux/features/signupSlice";
+import { register } from "@/redux/actions/auth";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-
 import { SITE_TITLE } from "@/utils/constants";
 
 import Logo from "@/components/_layout/Logo";
 import ButtonExt from "@/components/_uiext/ButtonExt";
 import InputIconExt from "@/components/_uiext/InputIconExt";
 
-export default function CustomerSignupStep3() {
+export default function CreatorSignupStep3() {
   const router = useRouter();
   const signup = useAppSelector(getSignup);
   const dispatch = useAppDispatch();
 
   const [showPassword, setShowPassword] = useState(false);
-
+  const [r_password, setR_password] = useState<string>("");
   const handleGoBackClick = () => {
     if (signup.stage === 1) {
       router.push("/signin");
@@ -33,8 +33,15 @@ export default function CustomerSignupStep3() {
   };
 
   const handleStartNowClick = () => {
-    dispatch(setStage(1));
-    router.push("/signin");
+    if (signup.data.password.length <= 4) {
+      error("Password Length are more 4");
+    } else if (signup.data.password !== r_password) {
+      error("Password Confirm is wrong");
+    } else {
+      dispatch(register(signup.data, router));
+      //dispatch(setStage(1));
+      // router.push("/signin");
+    }
   };
 
   const handleFieldChange =
@@ -45,6 +52,8 @@ export default function CustomerSignupStep3() {
             [field]: e.target.value
           })
         );
+      } else if (field === "r_password") {
+        setR_password(e.target.value);
       }
     };
 
@@ -72,7 +81,7 @@ export default function CustomerSignupStep3() {
           </div>
 
           <div className="text-center text-[16px] font-[400] text-[#1A1A1A] md:text-[20px]">
-            Create your password and start viewing your favorite content
+            Create your password and start sharing your content
           </div>
 
           <div className="mt-[52px]">
@@ -102,7 +111,7 @@ export default function CustomerSignupStep3() {
                   <LuEyeOff className="text-[20px] text-[#737373]" />
                 )
               }
-              onInputChange={handleFieldChange("password")}
+              onInputChange={handleFieldChange("r_password")}
               onIconClick={handleShowPassword}
             />
           </div>

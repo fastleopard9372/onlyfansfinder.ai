@@ -4,8 +4,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-
 import { LuChevronLeft } from "react-icons/lu";
+import { error, isValidEmail } from "@/lib/utils";
 
 import { getSignup, setData, setStage } from "@/redux/features/signupSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -15,6 +15,7 @@ import { SITE_TITLE } from "@/utils/constants";
 import Logo from "@/components/_layout/Logo";
 import InputExt from "@/components/_uiext/InputExt";
 import ButtonExt from "@/components/_uiext/ButtonExt";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CreatorSignupStep1() {
   const router = useRouter();
@@ -28,10 +29,21 @@ export default function CreatorSignupStep1() {
       dispatch(setStage(signup.stage - 1));
     }
   };
-
   const handleContinueClick = () => {
     if (signup.stage < signup.totalStage) {
-      dispatch(setStage(signup.stage + 1));
+      const msg = "Please Input Data!";
+      if (signup.data.name === "") {
+        error(msg);
+      } else if (!isValidEmail(signup.data.email)) {
+        error(msg);
+      } else if (signup.data.phone === "") {
+        error(msg);
+      } else if (signup.data.age < 1) {
+        error(msg);
+      } else if (signup.data.address === "") {
+        error(msg);
+      } else
+        dispatch(setStage(signup.stage + 1));
     }
   };
 
@@ -124,6 +136,7 @@ export default function CreatorSignupStep1() {
           style={{ width: `${(signup.stage * 100) / signup.totalStage}%` }}
         />
       </div>
+
     </div>
   );
 }

@@ -9,7 +9,7 @@ function Footer() {
       url: "/images/ai.svg",
       title: 'Use AI to scout out <br/>top performers'
     }, {
-      url: "/images/free.svg",
+      url: "/images/free1.svg",
       title: 'Completely <br/>FREE'
     }
   ]

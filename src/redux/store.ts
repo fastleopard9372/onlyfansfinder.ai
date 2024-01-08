@@ -9,15 +9,19 @@ import { signupSlice } from "./features/signupSlice";
 import { switchSlice } from "./features/switchSlice";
 import { searchSlice } from "./features/searchSlice";
 import { articleSlice } from "./features/articleSlice";
+import { authSlice } from "./features/authSlice";
+import { notifySlice } from "./features/notifySlice";
 
 export const makeStore = () =>
   configureStore({
-    reducer: {
+    reducer: { 
       [signinSlice.name]: signinSlice.reducer,
       [signupSlice.name]: signupSlice.reducer,
       [switchSlice.name]: switchSlice.reducer,
       [searchSlice.name]: searchSlice.reducer,
-      [articleSlice.name]: articleSlice.reducer
+      [articleSlice.name]: articleSlice.reducer,
+      [authSlice.name]: authSlice.reducer,
+      [notifySlice.name]: notifySlice.reducer
     }
   });
 

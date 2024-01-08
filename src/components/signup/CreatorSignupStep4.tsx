@@ -3,14 +3,14 @@
 
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-
 import { LuChevronLeft, LuEye, LuEyeOff } from "react-icons/lu";
 
-import { useState } from "react";
+import { error, success } from "@/lib/utils";
 import { getSignup, setData, setStage } from "@/redux/features/signupSlice";
+import { register } from "@/redux/actions/auth";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-
 import { SITE_TITLE } from "@/utils/constants";
 
 import Logo from "@/components/_layout/Logo";
@@ -23,7 +23,7 @@ export default function CreatorSignupStep4() {
   const dispatch = useAppDispatch();
 
   const [showPassword, setShowPassword] = useState(false);
-
+  const [r_password, setR_password] = useState<string>("");
   const handleGoBackClick = () => {
     if (signup.stage === 1) {
       router.push("/signin");
@@ -33,8 +33,15 @@ export default function CreatorSignupStep4() {
   };
 
   const handleStartNowClick = () => {
-    dispatch(setStage(1));
-    router.push("/signin");
+    if (signup.data.password.length <= 4) {
+      error("Password Length are more 4.");
+    } else if (signup.data.password !== r_password) {
+      error("Password Confirm is wrong.");
+    } else {
+      dispatch(register(signup.data, router));
+      //dispatch(setStage(1));
+      // router.push("/signin");
+    }
   };
 
   const handleFieldChange =
@@ -45,6 +52,8 @@ export default function CreatorSignupStep4() {
             [field]: e.target.value
           })
         );
+      } else if (field === "r_password") {
+        setR_password(e.target.value);
       }
     };
 
@@ -102,7 +111,7 @@ export default function CreatorSignupStep4() {
                   <LuEyeOff className="text-[20px] text-[#737373]" />
                 )
               }
-              onInputChange={handleFieldChange("password")}
+              onInputChange={handleFieldChange("r_password")}
               onIconClick={handleShowPassword}
             />
           </div>

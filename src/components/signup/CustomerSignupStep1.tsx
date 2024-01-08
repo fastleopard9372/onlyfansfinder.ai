@@ -4,9 +4,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-
 import { LuChevronLeft } from "react-icons/lu";
 
+import { error, isValidEmail } from "@/lib/utils";
 import { getSignup, setData, setStage } from "@/redux/features/signupSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
@@ -20,7 +20,6 @@ export default function CustomerSignupStep1() {
   const router = useRouter();
   const signup = useAppSelector(getSignup);
   const dispatch = useAppDispatch();
-
   const handleGoBackClick = () => {
     if (signup.stage === 1) {
       router.push("/signin");
@@ -28,13 +27,23 @@ export default function CustomerSignupStep1() {
       dispatch(setStage(signup.stage - 1));
     }
   };
-
   const handleContinueClick = () => {
     if (signup.stage < signup.totalStage) {
-      dispatch(setStage(signup.stage + 1));
+      const msg = "Please Input Data!";
+      if (signup.data.name === "") {
+        error(msg);
+      } else if (!isValidEmail(signup.data.email)) {
+        error(msg);
+      } else if (signup.data.phone === "") {
+        error(msg);
+      } else if (signup.data.age < 1) {
+        error(msg);
+      } else if (signup.data.address === "") {
+        error(msg);
+      } else
+        dispatch(setStage(signup.stage + 1));
     }
   };
-
   const handleFieldChange =
     (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
       dispatch(
