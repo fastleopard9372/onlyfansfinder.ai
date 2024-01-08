@@ -1,31 +1,19 @@
 "use client";
 import * as React from 'react'
-import Link from 'next/link'
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
-// Import Swiper styles
+
+import Card from "@/components/card/Card";
+import CreatorItem from "@/components/creatorItem";
+import { useAppSelector } from "@/redux/hooks";
+import { getData } from "@/redux/features/articleSlice";
+
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
-import Card from "@/components/card";
-import Article from "@/components/article";
-// import { ChevronDown, ChevronUp } from "lucide-react"
-
-// import InputExt from "@/components/_uiext/InputExt";
-// import ButtonExt from '../_uiext/ButtonExt';
-// import CheckboxExt from '../_uiext/CheckboxExt';
-// import SelectExt from '../_uiext/SelectExt';
-// import AccordionExt from '../_uiext/AccordionExt';
-// import ScrollAreaExt from '../_uiext/ScrollAreaExt';
-// import { SelectGroup } from "@/components/ui/select";
-import * as types from '@/types/interfaces';
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { getData } from "@/redux/features/articleSlice";
 const Body = () => {
   const data = useAppSelector(getData);
-  const dispatch = useAppDispatch();
   return (
     <div className='flex flex-row'>
       <div className='sm:w-[420px] sm:min-w-[420px] max-sm:hidden h-[100px]'></div>
@@ -37,7 +25,7 @@ const Body = () => {
             <div className='my-10'>
               {
                 data.map((value, index) => (
-                  <Article {...{ ...value, flag: 0 }} key={index} />
+                  <CreatorItem {...value} key={index} />
                 ))
               }
             </div>
@@ -50,7 +38,7 @@ const Body = () => {
             <div className='my-10'>
               {
                 data.map((value, index) => (
-                  <Article {...{ ...value, flag: 0 }} key={index} />
+                  <CreatorItem {...value} key={index} />
                 ))
               }
             </div>

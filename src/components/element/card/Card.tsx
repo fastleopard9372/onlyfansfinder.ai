@@ -1,17 +1,11 @@
 import * as React from 'react'
-import Link from 'next/link';
-import { IArticle } from "@/types/interfaces";
 
 const Card = (data: any) => {
   let include = '';
-  const flag = data.flag;
   data.include.forEach(element => {
     include += element + " > ";
   });
   include = include.slice(0, -3);
-  let clsName = "md:max-w-[200px] md:h-[200px]";
-  let clsName1 = "space-x-4 flex-row";
-  let font = 20;
   return (
     <div className='relative rounded-2xl w-[380px] h-[500px] bg-center bg-no-repeat bg-cover' style={{ backgroundImage: `url(${data.avatar})` }}>
       <div className='w-full absolute bottom-0 text-white'>

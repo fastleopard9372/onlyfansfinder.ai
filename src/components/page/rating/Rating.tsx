@@ -1,9 +1,8 @@
 import * as React from 'react'
 import Link from 'next/link';
-import { IArticle } from "@/types/interfaces";
-const Article = (data: any) => {
+const Rating = (data: any) => {
   let include = '';
-  const flag = data.flag;
+  let flag = 1;
   data.include.forEach(element => {
     include += element + " > ";
   });
@@ -72,4 +71,4 @@ const Article = (data: any) => {
   )
 }
 
-export default Article
+export default Rating

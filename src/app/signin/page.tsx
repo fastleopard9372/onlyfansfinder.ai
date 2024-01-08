@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import SignIn from "@/components/signin/SignIn";
+import SignIn from "@/components/page/signin/SignIn";
 
 import { SITE_TITLE } from "@/utils/constants";
 
