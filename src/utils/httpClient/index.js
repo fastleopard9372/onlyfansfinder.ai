@@ -1,8 +1,7 @@
 import axios from "axios";
-
-const BASEURL = "http://localhost:8000/api/users";
+import "dotenv/config";
+const BASEURL = process.env.NEXT_PUBLIC_SERVER_URL + "/api/users";
 const TIMEOUTMSG = "Waiting for too long...Aborted !";
-
 const config = {
   baseURL: BASEURL,
   timeout: 20000,
